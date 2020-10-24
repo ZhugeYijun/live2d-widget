@@ -1,12 +1,13 @@
 {
     "models": [
+        "Potion-Maker/Tia",
         [
+            "HyperdimensionNeptunia/histoirered",
+            "HyperdimensionNeptunia/histoire",
+            "HyperdimensionNeptunia/histoirenohover",
             "HyperdimensionNeptunia/blanc_classic",
             "HyperdimensionNeptunia/blanc_normal",
             "HyperdimensionNeptunia/blanc_swimwear",
-            "HyperdimensionNeptunia/histoire",
-            "HyperdimensionNeptunia/histoirenohover",
-            "HyperdimensionNeptunia/histoirered",
             "HyperdimensionNeptunia/nepgear_extra",
             "HyperdimensionNeptunia/nepnep",
             "HyperdimensionNeptunia/noir",
@@ -17,15 +18,14 @@
             "HyperdimensionNeptunia/vert_normal",
             "HyperdimensionNeptunia/vert_swimwear"
         ],
-        "Potion-Maker/Tia",
         [
             "ShizukuTalk/shizuku-48",
             "ShizukuTalk/shizuku-pajama"
         ]
     ],
     "messages": [
-        "Nep! Nep! 超次元游戏：海王星 系列",
         "来自 Potion Maker 的 Tia 酱 ~",
+        "Nep! Nep! 超次元游戏：海王星 系列",
         "Shizuku Talk ！这里是 Shizuku ~"
     ]
 }

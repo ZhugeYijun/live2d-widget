@@ -162,7 +162,7 @@ function loadWidget(config) {
 			modelTexturesId = localStorage.getItem("modelTexturesId");
 		if (modelId === null) {
 			// 首次访问加载 指定模型 的 指定材质
-			modelId = 1; // 模型 ID
+			modelId = 0; // 模型 ID
 			modelTexturesId = 53; // 材质 ID
 		}
 		loadModel(modelId, modelTexturesId);
@@ -214,34 +214,15 @@ function loadWidget(config) {
 		showMessage(message, 4000, 10);
 		if (useCDN) {
 			if (!modelList) await loadModelList();
-			const target = randomSelection(modelList.models[modelId]);
+			// const target = randomSelection(modelList.models[modelId]);
+			const target = Array.isArray(modelList.models[modelId]) ? modelList.models[modelId][0] : modelList.models[modelId];
+			console.log(target)
 			loadlive2d("live2d", `${cdnPath}model/${target}/index.json`);
 		} else {
 			loadlive2d("live2d", `${apiPath}get/?id=${modelId}-${modelTexturesId}`);
 			console.log(`Live2D 模型 ${modelId}-${modelTexturesId} 加载完成`);
 		}
 	}
-
-	// "HyperdimensionNeptunia/neptune_classic",
-	// "HyperdimensionNeptunia/nepnep",
-	// "HyperdimensionNeptunia/neptune_santa",
-	// "HyperdimensionNeptunia/nepmaid",
-	// "HyperdimensionNeptunia/nepswim",
-	// "HyperdimensionNeptunia/noir_classic",
-	// "HyperdimensionNeptunia/noir",
-	// "HyperdimensionNeptunia/noir_santa",
-	// "HyperdimensionNeptunia/noireswim",
-	// "HyperdimensionNeptunia/blanc_classic",
-	// "HyperdimensionNeptunia/blanc_normal",
-	// "HyperdimensionNeptunia/blanc_swimwear",
-	// "HyperdimensionNeptunia/vert_classic",
-	// "HyperdimensionNeptunia/vert_normal",
-	// "HyperdimensionNeptunia/vert_swimwear",
-	// "HyperdimensionNeptunia/nepgear",
-	// "HyperdimensionNeptunia/nepgear_extra",
-	// "HyperdimensionNeptunia/nepgearswim",
-	// "HyperdimensionNeptunia/histoire",
-	// "HyperdimensionNeptunia/histoirenohover"
 
 	async function loadRandModel() {
 		const modelId = localStorage.getItem("modelId"),
