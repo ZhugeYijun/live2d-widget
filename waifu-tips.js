@@ -162,7 +162,7 @@ function loadWidget(config) {
 			modelTexturesId = localStorage.getItem("modelTexturesId");
 		if (modelId === null) {
 			// 首次访问加载 指定模型 的 指定材质
-			modelId = 0; // 模型 ID
+			modelId = 1; // 模型 ID
 			modelTexturesId = 53; // 材质 ID
 		}
 		loadModel(modelId, modelTexturesId);
@@ -203,9 +203,7 @@ function loadWidget(config) {
 
 	async function loadModelList() {
 		const response = await fetch(`${cdnPath}model_list.json`);
-		console.log(response)
 		modelList = await response.json();
-		console.log(modelList)
 	}
 
 	async function loadModel(modelId, modelTexturesId, message) {
@@ -216,7 +214,6 @@ function loadWidget(config) {
 			if (!modelList) await loadModelList();
 			// const target = randomSelection(modelList.models[modelId]);
 			const target = Array.isArray(modelList.models[modelId]) ? modelList.models[modelId][0] : modelList.models[modelId];
-			console.log(target)
 			loadlive2d("live2d", `${cdnPath}model/${target}/index.json`);
 		} else {
 			loadlive2d("live2d", `${apiPath}get/?id=${modelId}-${modelTexturesId}`);
